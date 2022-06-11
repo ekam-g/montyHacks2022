@@ -1,5 +1,5 @@
 import 'dart:ffi';
-
+import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
 import 'package:montyhacks2022/screens/login/loginScreen.dart';
@@ -34,6 +34,8 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
+    final firestoreInstance = FirebaseFirestore.instance;
+
     return Scaffold(
       appBar: AppBar(
         leading: IconButton(
@@ -70,7 +72,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             builder: (context) => const display()),
                       );
                     },
-                    child: const Text('Number of Recycled vs not')),
+                    child: const Text('Global Data')),
               ),
             ),
             const Spacer(),
@@ -80,7 +82,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 200,
                 child: ElevatedButton(
                     onPressed: () {
-                      if (user == "Ekam") {
+                      if (user == false) {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
@@ -98,6 +100,39 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ),
             const Spacer(),
+            ElevatedButton(
+                onPressed: () async {
+                  if (user == true) {
+                    firestoreInstance
+                        .collection("EddieShowBenifts")
+                        .doc("IzyT4tkk7UYZbJqYjOrc")
+                        .get()
+                        .then((info) {
+                      int boughtRecycled = info.data()!['bought_recycled'];
+                      firestoreInstance
+                          .collection("EddieShowBenifts")
+                          .doc("IzyT4tkk7UYZbJqYjOrc")
+                          .update({
+                        "bought_recycled": boughtRecycled + 1,
+                      });
+                    });
+                  } else {
+                    firestoreInstance
+                        .collection("EkamShowBenifts")
+                        .doc("v5qkYm7QDtuPRv7HrzGI")
+                        .get()
+                        .then((info) {
+                      int boughtRecycled = info.data()!['bought_recycled'];
+                      firestoreInstance
+                          .collection("EkamShowBenifts")
+                          .doc("v5qkYm7QDtuPRv7HrzGI")
+                          .update({
+                        "bought_recycled": boughtRecycled + 1,
+                      });
+                    });
+                  }
+                },
+                child: const Text('I Bought a Recyclable Item'))
           ],
         ),
       ),

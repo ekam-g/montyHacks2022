@@ -11,7 +11,7 @@ Future<void> main() async {
   bool islogin1 = false;
   final prefs = await SharedPreferences.getInstance();
   islogin = prefs.getBool('deleteAll') ?? false;
-  islogin1 = prefs.getBool('EKdeleteAll') ?? false;
+  islogin1 = prefs.getBool('EkdeleteAll') ?? false;
 
   await Firebase.initializeApp();
   runApp(MaterialApp(

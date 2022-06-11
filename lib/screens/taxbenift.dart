@@ -18,7 +18,7 @@ class _taxbenifit extends State<taxbenifit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("TaxBenifts"),
+        title: const Text("Ekam's Tax Benefits"),
       ),
       body: Center(
         child: Column(
@@ -52,8 +52,8 @@ class _taxbenifit extends State<taxbenifit> {
                             padding: const EdgeInsets.all(10),
                             child: Text(
                               // ignore: prefer_interpolation_to_compose_strings
-                              "${"\n Tax Deduction  " + display.docs[index]['Score']}\n Stuff Reycled  " +
-                                  display.docs[index]['Stuff'],
+                              "${"\n Tax Deduction  \$" + display.docs[index]['score'].toString()}\n Recycled Items  " +
+                                  display.docs[index]['num_recycled'].toString(),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 fontSize: 20,

@@ -10,7 +10,6 @@ class Edtaxbenifit extends StatefulWidget {
 }
 
 class _Edtaxbenifit extends State<Edtaxbenifit> {
-
   final Stream<QuerySnapshot> data =
       FirebaseFirestore.instance.collection('EddieShowBenifts').snapshots();
 
@@ -18,7 +17,7 @@ class _Edtaxbenifit extends State<Edtaxbenifit> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Eddies TaxBenifts"),
+        title: const Text("Eddie's Tax Benefits"),
       ),
       body: Center(
         child: Column(
@@ -52,8 +51,9 @@ class _Edtaxbenifit extends State<Edtaxbenifit> {
                             padding: const EdgeInsets.all(10),
                             child: Text(
                               // ignore: prefer_interpolation_to_compose_strings
-                              "${"\n Tax Deduction  " + display.docs[index]['Score']}\n Stuff Reycled  " +
-                                  display.docs[index]['Stuff'],
+                              "${"\n Tax Deduction  \$" + display.docs[index]['score'].toString()}\n Recycled Items  " +
+                                  display.docs[index]['num_recycled']
+                                      .toString(),
                               textAlign: TextAlign.center,
                               style: const TextStyle(
                                 fontSize: 20,

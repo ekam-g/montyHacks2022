@@ -17,7 +17,7 @@ class _display extends State<display> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("Data Display Page"),
+        title: const Text("Global Data"),
       ),
       body: Center(
         child: Column(
