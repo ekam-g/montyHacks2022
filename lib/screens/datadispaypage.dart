@@ -51,6 +51,7 @@ class _display extends State<display> {
                             padding: const EdgeInsets.all(10),
                             child: Text(
                               display.docs[index]['test'],
+                              textAlign: TextAlign.center,
                               style: const TextStyle(
                                 fontSize: 20,
                               ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
+import 'package:montyhacks2022/screens/peopleadd.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -19,15 +20,25 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Spacer(),
             ElevatedButton(
                 onPressed: () {
                   Navigator.push(
                     context,
-                    MaterialPageRoute(
-                        builder: (context) => const display()),
+                    MaterialPageRoute(builder: (context) => const display()),
                   );
                 },
                 child: const Text('Number of Recycled vs not')),
+                const Spacer(),
+            ElevatedButton(
+                onPressed: () {
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => const peopleadd()),
+                  );
+                },
+                child: const Text('Take Survey')),
+                const Spacer(),
           ],
         ),
       ),
