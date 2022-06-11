@@ -1,19 +1,19 @@
 import 'package:flutter/material.dart';
-import 'package:montyhacks2022/screens/datadispaypage.dart';
 
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+class display extends StatefulWidget {
+  const display({
+    Key? key,
+  }) : super(key: key);
   @override
-  State<MyHomePage> createState() => _MyHomePageState();
+  State<display> createState() => _display();
 }
 
-class _MyHomePageState extends State<MyHomePage> {
+class _display extends State<display> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: const Text("Data Display Page"),
       ),
       body: Center(
         child: Column(
@@ -21,11 +21,7 @@ class _MyHomePageState extends State<MyHomePage> {
           children: <Widget>[
             ElevatedButton(
                 onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(
-                        builder: (context) => const display()),
-                  );
+                  null;
                 },
                 child: const Text('Number of Recycled vs not')),
           ],
