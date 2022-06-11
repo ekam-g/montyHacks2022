@@ -80,51 +80,41 @@ class _display extends State<display> {
                 height: 250,
                 child: loading
                     ? const CircularProgressIndicator()
-                    : Padding(
-                        padding: const EdgeInsets.symmetric(horizontal: 20),
-                        child: Center(
-                          child: Column(
-                            children: [
-                              const Spacer(),
-                              const Text("Total Recycled Items",
-                                  textAlign: TextAlign.center,
-                                  style: TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black)),
-                              Text(totalRecycledCount.toString()),
-                              const Spacer(
-                                flex: 5,
-                              ),
-                              const Text(
-                                "Personal Information",
+                    : Center(
+                        child: Column(
+                          children: [
+                            const Spacer(),
+                            const Text("Total Recycled Items",
                                 textAlign: TextAlign.center,
-                              ),
-                              const Spacer(
-                                flex: 5,
-                              ),
-                              Text("$name Recyclable Bought Items",
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black)),
-                              Text(yourRecyclabledBoughtCount.toString()),
-                              const Spacer(
-                                flex: 5,
-                              ),
-                              Text("$name Recycled Items",
-                                  textAlign: TextAlign.center,
-                                  style: const TextStyle(
-                                      fontSize: 20,
-                                      fontWeight: FontWeight.bold,
-                                      color: Colors.black)),
-                              Text(yourRecycledCount.toString()),
-                              const Spacer(
-                                flex: 5,
-                              ),
-                            ],
-                          ),
+                                style: TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                            Text(totalRecycledCount.toString()),
+                            const Spacer(
+                              flex: 5,
+                            ),
+                            Text("$name Recyclable Bought Items",
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                            Text(yourRecyclabledBoughtCount.toString()),
+                            const Spacer(
+                              flex: 5,
+                            ),
+                            Text("$name Recycled Items",
+                                textAlign: TextAlign.center,
+                                style: const TextStyle(
+                                    fontSize: 20,
+                                    fontWeight: FontWeight.bold,
+                                    color: Colors.black)),
+                            Text(yourRecycledCount.toString()),
+                            const Spacer(
+                              flex: 5,
+                            ),
+                          ],
                         ),
                       ),
               ),
