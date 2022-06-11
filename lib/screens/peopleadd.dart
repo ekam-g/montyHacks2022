@@ -1,12 +1,16 @@
 import 'package:flutter/material.dart';
 
 class peopleadd extends StatefulWidget {
-  const peopleadd({Key? key,}) : super(key: key);
+  const peopleadd({
+    Key? key,
+  }) : super(key: key);
   @override
   State<peopleadd> createState() => _peopleadd();
 }
 
 class _peopleadd extends State<peopleadd> {
+  final myController = TextEditingController();
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -17,15 +21,18 @@ class _peopleadd extends State<peopleadd> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Text("hsd"),
+            TextField(
+              controller: myController,
+            ),
             ElevatedButton(
                 onPressed: () {
                   null;
                 },
-                child: const Text('Number of Recycled vs not')),
+                child: const Text('Summit Survey')),
           ],
         ),
       ),
-      
     );
   }
 }

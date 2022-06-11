@@ -69,7 +69,6 @@ class _display extends State<display> {
           ],
         ),
       ),
-     
     );
   }
 }

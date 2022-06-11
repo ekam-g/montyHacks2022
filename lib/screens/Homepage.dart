@@ -21,32 +21,47 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Spacer(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const display()),
-                  );
-                },
-                child: const Text('Number of Recycled vs not')),
-                const Spacer(),
-            ElevatedButton(
-                onPressed: () {
-                  Navigator.push(
-                    context,
-                    MaterialPageRoute(builder: (context) => const peopleadd()),
-                  );
-                },
-                child: const Text('Take Survey')),
-                const Spacer(),
+            Expanded(
+              flex: 2,
+              child: SizedBox(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const display()),
+                      );
+                    },
+                    child: const Text('Number of Recycled vs not')),
+              ),
+            ),
+            const Spacer(),
+            Expanded(
+              flex: 2,
+              child: SizedBox(
+                width: 200,
+                child: ElevatedButton(
+                    onPressed: () {
+                      Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (context) => const peopleadd()),
+                      );
+                    },
+                    child: const Text('Take Survey')),
+              ),
+            ),
+            const Spacer(),
           ],
         ),
       ),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      //add if you want to add a floating action button
+      // floatingActionButton: const FloatingActionButton(
+      //   onPressed: null,
+      //   tooltip: 'Increment',
+      //   child: Icon(Icons.add),
+      // ),
     );
   }
 }
