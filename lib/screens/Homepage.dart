@@ -51,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           },
         ),
-        title: Text(user ? 'Eddie' : 'Ekam'),
+        title: Text(user ? 'Welcome Back Eddie' : 'Welcome back Ekam'),
       ),
       body: Center(
         child: Column(
