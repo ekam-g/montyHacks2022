@@ -85,6 +85,7 @@ class _display extends State<display> {
                         child: Center(
                           child: Column(
                             children: [
+                              const Spacer(),
                               const Text("Total Recycled Items",
                                   textAlign: TextAlign.center,
                                   style: TextStyle(
@@ -92,9 +93,15 @@ class _display extends State<display> {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
                               Text(totalRecycledCount.toString()),
+                              const Spacer(
+                                flex: 5,
+                              ),
                               const Text(
                                 "Personal Information",
                                 textAlign: TextAlign.center,
+                              ),
+                              const Spacer(
+                                flex: 5,
                               ),
                               Text("$name Recyclable Bought Items",
                                   textAlign: TextAlign.center,
@@ -103,6 +110,9 @@ class _display extends State<display> {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
                               Text(yourRecyclabledBoughtCount.toString()),
+                              const Spacer(
+                                flex: 5,
+                              ),
                               Text("$name Recycled Items",
                                   textAlign: TextAlign.center,
                                   style: const TextStyle(
@@ -110,6 +120,9 @@ class _display extends State<display> {
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
                               Text(yourRecycledCount.toString()),
+                              const Spacer(
+                                flex: 5,
+                              ),
                             ],
                           ),
                         ),
