@@ -59,7 +59,9 @@ class _MyHomePageState extends State<MyHomePage> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
-            const Spacer(),
+            const Spacer(
+              flex: 2,
+            ),
             Expanded(
               flex: 2,
               child: SizedBox(
@@ -75,7 +77,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: const Text('Global Data')),
               ),
             ),
-            const Spacer(),
+            const Spacer(flex: 2),
             Expanded(
               flex: 2,
               child: SizedBox(
@@ -99,7 +101,9 @@ class _MyHomePageState extends State<MyHomePage> {
                     child: const Text('Tax Benefit')),
               ),
             ),
-            const Spacer(),
+            const Spacer(
+              flex: 2,
+            ),
             ElevatedButton(
                 onPressed: () async {
                   if (user == true) {
@@ -132,7 +136,8 @@ class _MyHomePageState extends State<MyHomePage> {
                     });
                   }
                 },
-                child: const Text('I Bought a Recyclable Item'))
+                child: const Text('I Bought a Recyclable Item')),
+            const Spacer(),
           ],
         ),
       ),

@@ -1,5 +1,6 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class display extends StatefulWidget {
   const display({
@@ -10,8 +11,58 @@ class display extends StatefulWidget {
 }
 
 class _display extends State<display> {
-  final Stream<QuerySnapshot> data =
-      FirebaseFirestore.instance.collection('recyclingdisplay').snapshots();
+  var totalRecycledCount;
+  var yourRecycledCount;
+  var yourRecyclabledBoughtCount;
+  bool loading = true;
+  bool user = false;
+  var name;
+
+  @override
+  getData1() async {
+    final firestoreInstance = FirebaseFirestore.instance;
+
+    firestoreInstance
+        .collection("EddieShowBenifts")
+        .doc("IzyT4tkk7UYZbJqYjOrc")
+        .get()
+        .then((eddieData) {
+      firestoreInstance
+          .collection("EkamShowBenifts")
+          .doc("v5qkYm7QDtuPRv7HrzGI")
+          .get()
+          .then((ekamData) {
+        setState(() async {
+          totalRecycledCount =
+              eddieData['num_recycled'] + ekamData['num_recycled'];
+
+          loading = false;
+          //get user data
+          final prefs = await SharedPreferences.getInstance();
+          user = prefs.getBool('deleteAll') ?? false;
+          setState(() {
+            if (user) {
+              yourRecycledCount = eddieData['num_recycled'];
+              yourRecyclabledBoughtCount = eddieData['bought_recycled'];
+              name = "Eddie's";
+            } else {
+              yourRecycledCount = ekamData['num_recycled'];
+              yourRecyclabledBoughtCount = ekamData['bought_recycled'];
+              name = "Ekam's";
+            }
+          });
+        });
+      });
+    });
+  }
+
+  @override
+  void initState() {
+    getData1();
+  }
+
+  // final Stream<QuerySnapshot> data =
+  //     FirebaseFirestore.instance.collection('recyclingdisplay').snapshots();
 
   @override
   Widget build(BuildContext context) {
@@ -27,43 +78,23 @@ class _display extends State<display> {
               padding: const EdgeInsets.all(10),
               child: SizedBox(
                 height: 250,
-                child: StreamBuilder<QuerySnapshot>(
-                  stream: data,
-                  builder: (
-                    BuildContext context,
-                    AsyncSnapshot<QuerySnapshot> snapshot,
-                  ) {
-                    if (snapshot.connectionState == ConnectionState.waiting) {
-                      return const SizedBox(
-                          height: 250,
-                          width: 250,
-                          child: CircularProgressIndicator());
-                    }
-                    if (snapshot.hasError) {
-                      return const Text('Error');
-                    }
-                    final display = snapshot.requireData;
-                    if (snapshot.hasData) {
-                      return ListView.builder(
-                        itemCount: display.size,
-                        itemBuilder: (context, index) {
-                          return Padding(
-                            padding: const EdgeInsets.all(10),
-                            child: Text(
-                              display.docs[index]['test'],
-                              textAlign: TextAlign.center,
-                              style: const TextStyle(
-                                fontSize: 20,
-                              ),
-                            ),
-                          );
-                        },
-                      );
-                    } else {
-                      return const CircularProgressIndicator();
-                    }
-                  },
-                ),
+                child: loading
+                    ? const CircularProgressIndicator()
+                    : Text("Total Recycled Items: $totalRecycledCount"),
+              ),
+            ),
+            Padding(
+              padding: const EdgeInsets.all(10),
+              child: SizedBox(
+                height: 250,
+                child: loading
+                    ? const CircularProgressIndicator()
+                    : Column(
+                      children: [
+                        Text("$name Recyclable Bought Items: $yourRecyclabledBoughtCount"),
+                        Text("$name Recycled Items: $yourRecycledCount")
+                      ],
+                    ),
               ),
             ),
           ],
