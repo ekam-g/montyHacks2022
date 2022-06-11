@@ -49,7 +49,7 @@ class _MyHomePageState extends State<MyHomePage> {
                             builder: (context) => const taxbenifit()),
                       );
                     },
-                    child: const Text('Take Survey')),
+                    child: const Text('Tax Benefit')),
               ),
             ),
             const Spacer(),
