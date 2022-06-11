@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
-import 'package:montyhacks2022/screens/peopleadd.dart';
+import 'package:montyhacks2022/screens/taxbenift.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
@@ -46,7 +46,7 @@ class _MyHomePageState extends State<MyHomePage> {
                       Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => const peopleadd()),
+                            builder: (context) => const taxbenifit()),
                       );
                     },
                     child: const Text('Take Survey')),
