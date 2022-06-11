@@ -81,24 +81,30 @@ class _display extends State<display> {
                 child: loading
                     ? const CircularProgressIndicator()
                     : Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                        padding: const EdgeInsets.symmetric(horizontal: 20),
                         child: Center(
                           child: Column(
                             children: [
                               const Text("Total Recycled Items",
+                                  textAlign: TextAlign.center,
                                   style: TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
                               Text(totalRecycledCount.toString()),
-                              const Text("Personal Information"),
-                              Text("$name Recyclable Bought Items",textAlign: TextAlign.center,
+                              const Text(
+                                "Personal Information",
+                                textAlign: TextAlign.center,
+                              ),
+                              Text("$name Recyclable Bought Items",
+                                  textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
                                       color: Colors.black)),
                               Text(yourRecyclabledBoughtCount.toString()),
                               Text("$name Recycled Items",
+                                  textAlign: TextAlign.center,
                                   style: const TextStyle(
                                       fontSize: 20,
                                       fontWeight: FontWeight.bold,
