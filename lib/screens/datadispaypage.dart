@@ -24,7 +24,7 @@ class _display extends State<display> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             Padding(
-              padding: const EdgeInsets.all(20),
+              padding: const EdgeInsets.all(10),
               child: SizedBox(
                 height: 250,
                 child: StreamBuilder<QuerySnapshot>(
@@ -48,12 +48,14 @@ class _display extends State<display> {
                         itemCount: display.size,
                         itemBuilder: (context, index) {
                           return Padding(
-                              padding: const EdgeInsets.all(10),
-                              child: Text(
-                                display.docs[index]['test'],
-                                style: const TextStyle(fontSize: 20),
-                                textAlign: TextAlign.center,
-                              ));
+                            padding: const EdgeInsets.all(10),
+                            child: Text(
+                              display.docs[index]['test'],
+                              style: const TextStyle(
+                                fontSize: 20,
+                              ),
+                            ),
+                          );
                         },
                       );
                     } else {
