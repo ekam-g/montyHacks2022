@@ -17,10 +17,12 @@ class _MyHomePageState extends State<MyHomePage> {
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
-          children: const <Widget>[
-            Text(
-              'cool',
-            ),
+          children: <Widget>[
+            ElevatedButton(
+                onPressed: () {
+                  null;
+                },
+                child: const Text('')),
           ],
         ),
       ),
