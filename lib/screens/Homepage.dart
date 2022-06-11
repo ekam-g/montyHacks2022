@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
 import 'package:montyhacks2022/screens/taxbenift.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Edtaxbenifts.dart';
 
@@ -19,7 +20,10 @@ class _MyHomePageState extends State<MyHomePage> {
       appBar: AppBar(
         leading: IconButton(
           icon: const Icon(Icons.turn_left_sharp, color: Colors.white),
-          onPressed: () => null,
+          onPressed: () async {
+            final prefs = await SharedPreferences.getInstance();
+            final key1 = await prefs.remove('deleteAll');
+          },
         ),
         title: Text("Welcome $user!"),
       ),
