@@ -12,11 +12,15 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String user = "Ekam";
+  String user = "Eddie";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        leading: IconButton(
+          icon: const Icon(Icons.turn_left_sharp, color: Colors.white),
+          onPressed: () => null,
+        ),
         title: Text("Welcome $user!"),
       ),
       body: Center(
@@ -56,7 +60,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  const Edtaxbenifit()),
+                              builder: (context) => const Edtaxbenifit()),
                         );
                       }
                     },
