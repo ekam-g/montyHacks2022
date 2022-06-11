@@ -25,11 +25,7 @@ class _peopleadd extends State<peopleadd> {
           ],
         ),
       ),
-      floatingActionButton: const FloatingActionButton(
-        onPressed: null,
-        tooltip: 'Increment',
-        child: Icon(Icons.add),
-      ),
+      
     );
   }
 }
