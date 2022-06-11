@@ -1,3 +1,5 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
 import 'package:montyhacks2022/screens/login/loginScreen.dart';
@@ -7,18 +9,21 @@ import 'package:shared_preferences/shared_preferences.dart';
 import 'Edtaxbenifts.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const MyHomePage({
+    Key? key,
+  }) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String user = "";
+  bool islogin1 = false;
+  bool user = false;
   @override
   getData1() async {
     final prefs = await SharedPreferences.getInstance();
-    user = prefs.getString('deleteAll') ?? "";
+    user = prefs.getBool('deleteAll') ?? false;
+    islogin1 = prefs.getBool('EKdeleteAll') ?? false;
     setState(() {});
   }
 
@@ -35,7 +40,8 @@ class _MyHomePageState extends State<MyHomePage> {
           icon: const Icon(Icons.turn_left_sharp, color: Colors.white),
           onPressed: () async {
             final prefs = await SharedPreferences.getInstance();
-            final key1 = await prefs.remove('deleteAll');
+            final user = await prefs.remove('deleteAll');
+
             // ignore: use_build_context_synchronously
             Navigator.push(
               context,
@@ -45,7 +51,7 @@ class _MyHomePageState extends State<MyHomePage> {
             );
           },
         ),
-        title: Text("Welcome $user!"),
+        title: Text(user ? 'Eddie' : 'Ekam'),
       ),
       body: Center(
         child: Column(
