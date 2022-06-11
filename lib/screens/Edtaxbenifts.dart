@@ -1,24 +1,24 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 
-class taxbenifit extends StatefulWidget {
-  const taxbenifit({
+class Edtaxbenifit extends StatefulWidget {
+  const Edtaxbenifit({
     Key? key,
   }) : super(key: key);
   @override
-  State<taxbenifit> createState() => _taxbenifit();
+  State<Edtaxbenifit> createState() => _Edtaxbenifit();
 }
 
-class _taxbenifit extends State<taxbenifit> {
+class _Edtaxbenifit extends State<Edtaxbenifit> {
 
   final Stream<QuerySnapshot> data =
-      FirebaseFirestore.instance.collection('EkamShowBenifts').snapshots();
+      FirebaseFirestore.instance.collection('EddieShowBenifts').snapshots();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: const Text("TaxBenifts"),
+        title: const Text("Eddies TaxBenifts"),
       ),
       body: Center(
         child: Column(

@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
 import 'package:montyhacks2022/screens/taxbenift.dart';
 
+import 'Edtaxbenifts.dart';
+
 class MyHomePage extends StatefulWidget {
   const MyHomePage({Key? key, required this.title}) : super(key: key);
   final String title;
@@ -10,11 +12,12 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  String user = "Ekam";
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text(widget.title),
+        title: Text("Welcome $user!"),
       ),
       body: Center(
         child: Column(
@@ -43,11 +46,19 @@ class _MyHomePageState extends State<MyHomePage> {
                 width: 200,
                 child: ElevatedButton(
                     onPressed: () {
-                      Navigator.push(
-                        context,
-                        MaterialPageRoute(
-                            builder: (context) => const taxbenifit()),
-                      );
+                      if (user == "Ekam") {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) => const taxbenifit()),
+                        );
+                      } else {
+                        Navigator.push(
+                          context,
+                          MaterialPageRoute(
+                              builder: (context) =>  const Edtaxbenifit()),
+                        );
+                      }
                     },
                     child: const Text('Tax Benefit')),
               ),
