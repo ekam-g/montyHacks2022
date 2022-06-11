@@ -60,6 +60,17 @@ class _MyHomePageState extends State<MyHomePage> {
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
             const Spacer(
+              flex: 1,
+            ),
+            Expanded(
+              flex: 6,
+              child: Image.asset(
+                'lib/sourse/637484690169470000.png',
+                // height: 400,
+                // width: 400,
+              ),
+            ),
+            const Spacer(
               flex: 2,
             ),
             Expanded(
