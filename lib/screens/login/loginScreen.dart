@@ -52,10 +52,8 @@ class _login extends State<login> {
                 );
               }
               //show key wrong
-              if (myController1 == '69420') {            
-                if (myController1.text == '42069') {
-                  return;
-                }
+              if (myController1 == '69420') {
+                return;
               } else {
                 ScaffoldMessenger.of(context).showSnackBar(
                   const SnackBar(
@@ -63,6 +61,9 @@ class _login extends State<login> {
                   ),
                 );
               }
+               if (myController1.text == '42069') {
+                  return;
+                }
             },
             child: const Text("Submit"))
       ],

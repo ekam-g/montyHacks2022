@@ -3,13 +3,20 @@ import 'package:montyhacks2022/screens/Homepage.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
+import 'screens/login/loginScreen.dart';
+
 Future<void> main() async {
   WidgetsFlutterBinding.ensureInitialized();
   bool islogin =false;
   final prefs = await SharedPreferences.getInstance();
   islogin = prefs.getBool('deleteAll') ?? false;
   await Firebase.initializeApp();
-  runApp(const MyApp());
+  runApp( MaterialApp(
+    home: islogin
+        ? const MyApp()
+        :login(),
+  ));
+  // runApp(const MyApp());
 
 }
 
