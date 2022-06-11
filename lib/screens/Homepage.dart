@@ -1,23 +1,57 @@
+import 'dart:ffi';
+
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
+import 'package:montyhacks2022/screens/login/loginScreen.dart';
 import 'package:montyhacks2022/screens/taxbenift.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 import 'Edtaxbenifts.dart';
 
 class MyHomePage extends StatefulWidget {
-  const MyHomePage({Key? key, required this.title}) : super(key: key);
-  final String title;
+  const MyHomePage({
+    Key? key,
+  }) : super(key: key);
   @override
   State<MyHomePage> createState() => _MyHomePageState();
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String user = "Ekam";
+  bool islogin1 = false;
+  bool user = false;
+  @override
+  getData1() async {
+    final prefs = await SharedPreferences.getInstance();
+    user = prefs.getBool('deleteAll') ?? false;
+    islogin1 = prefs.getBool('EKdeleteAll') ?? false;
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getData1();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        title: Text("Welcome $user!"),
+        leading: IconButton(
+          icon: const Icon(Icons.turn_left_sharp, color: Colors.white),
+          onPressed: () async {
+            final prefs = await SharedPreferences.getInstance();
+            final user = await prefs.remove('deleteAll');
+
+            // ignore: use_build_context_synchronously
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => login(),
+              ),
+            );
+          },
+        ),
+        title: Text(user ? 'Welcome Back Eddie' : 'Welcome back Ekam'),
       ),
       body: Center(
         child: Column(
@@ -56,7 +90,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         Navigator.push(
                           context,
                           MaterialPageRoute(
-                              builder: (context) =>  const Edtaxbenifit()),
+                              builder: (context) => const Edtaxbenifit()),
                         );
                       }
                     },
