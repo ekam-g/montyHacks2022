@@ -80,21 +80,34 @@ class _display extends State<display> {
                 height: 250,
                 child: loading
                     ? const CircularProgressIndicator()
-                    : Text("Total Recycled Items: $totalRecycledCount"),
-              ),
-            ),
-            Padding(
-              padding: const EdgeInsets.all(10),
-              child: SizedBox(
-                height: 250,
-                child: loading
-                    ? const CircularProgressIndicator()
-                    : Column(
-                      children: [
-                        Text("$name Recyclable Bought Items: $yourRecyclabledBoughtCount"),
-                        Text("$name Recycled Items: $yourRecycledCount")
-                      ],
-                    ),
+                    : Padding(
+                      padding: const EdgeInsets.symmetric(horizontal: 20),
+                        child: Center(
+                          child: Column(
+                            children: [
+                              const Text("Total Recycled Items",
+                                  style: TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text(totalRecycledCount.toString()),
+                              const Text("Personal Information"),
+                              Text("$name Recyclable Bought Items",textAlign: TextAlign.center,
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text(yourRecyclabledBoughtCount.toString()),
+                              Text("$name Recycled Items",
+                                  style: const TextStyle(
+                                      fontSize: 20,
+                                      fontWeight: FontWeight.bold,
+                                      color: Colors.black)),
+                              Text(yourRecycledCount.toString()),
+                            ],
+                          ),
+                        ),
+                      ),
               ),
             ),
           ],
