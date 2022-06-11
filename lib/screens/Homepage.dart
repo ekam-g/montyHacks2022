@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:montyhacks2022/screens/datadispaypage.dart';
+import 'package:montyhacks2022/screens/login/loginScreen.dart';
 import 'package:montyhacks2022/screens/taxbenift.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
@@ -13,7 +14,19 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
-  String user = "Eddie";
+  String user = "";
+  @override
+  getData1() async {
+    final prefs = await SharedPreferences.getInstance();
+    user = prefs.getString('deleteAll') ?? "";
+    setState(() {});
+  }
+
+  @override
+  void initState() {
+    getData1();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -23,6 +36,13 @@ class _MyHomePageState extends State<MyHomePage> {
           onPressed: () async {
             final prefs = await SharedPreferences.getInstance();
             final key1 = await prefs.remove('deleteAll');
+            // ignore: use_build_context_synchronously
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => login(),
+              ),
+            );
           },
         ),
         title: Text("Welcome $user!"),

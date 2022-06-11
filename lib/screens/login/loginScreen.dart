@@ -25,7 +25,7 @@ class _login extends State<login> {
             child: Column(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        const Text("Auth Key:"),
+        const Text("Login Key:"),
         Padding(
             padding: const EdgeInsets.all(30),
             child: TextField(
@@ -42,6 +42,17 @@ class _login extends State<login> {
               //normal login
               if (myController1.text == '69420') {
                 await prefs.setBool('deleteAll', true);
+
+                // ignore: use_build_context_synchronously
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MyApp(),
+                  ),
+                );
+              }
+                if (myController1.text == '42069') {
+                await prefs.setBool('EkdeleteAll', true);
 
                 // ignore: use_build_context_synchronously
                 Navigator.push(
