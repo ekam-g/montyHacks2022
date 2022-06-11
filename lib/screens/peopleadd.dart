@@ -21,15 +21,20 @@ class _peopleadd extends State<peopleadd> {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: <Widget>[
+            const Spacer(),
             const Text("hsd"),
-            TextField(
-              controller: myController,
-            ),
+            Padding(
+                padding: const EdgeInsets.all(10),
+                child: TextField(
+                  controller: myController,
+                )),
+            const Spacer(),
             ElevatedButton(
                 onPressed: () {
                   null;
                 },
                 child: const Text('Summit Survey')),
+            const Spacer(),
           ],
         ),
       ),
