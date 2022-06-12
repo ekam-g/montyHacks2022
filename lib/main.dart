@@ -13,7 +13,13 @@ Future<void> main() async {
   islogin = prefs.getBool('deleteAll') ?? false;
   islogin1 = prefs.getBool('EkdeleteAll') ?? false;
 
-  await Firebase.initializeApp();
+  await Firebase.initializeApp(
+    options: const FirebaseOptions(
+    apiKey: "AIzaSyAVIGw9dakIgtkXsR96ZCmdgu9lKK1vA68",
+    appId: "1:369278270263:web:eecc70240f50ef256f78b2",
+    messagingSenderId: "369278270263",
+    projectId: "montyhacks2022",
+  ));
   runApp(MaterialApp(
     home: islogin
         ? const MyApp()
